@@ -48,13 +48,56 @@
 
 /* Opgave 3 - skriv videre på koden her: */
 
+
+
 // array med person data
+
 const myPersons = [];
 
 
+
+
+
 // find form elementer
+
 const myForm = document.getElementById('formular');
+
 const submitButton = document.getElementById('indsend-knap');
+
 const personList = document.getElementById('person-liste');
 
 
+
+submitButton.addEventListener('click', (event) => {
+
+    event.preventDefault(); // Forhindre standard formularindsendelse
+
+
+
+    // hent navn og alder
+
+    const navn = myForm.elements['navn'].value;
+
+    const alder = myForm.elements['alder'].value;
+
+
+
+    // opret person
+
+    const person = { navn, alder };
+
+
+
+    // opdater
+
+    myPersons.push(person);
+
+    document.getElementById("person-liste").innerHTML += `<div>
+
+        <h2>${person.navn}</h2>
+
+        <p>${person.alder} år</p>
+
+    </div>`;
+
+});
